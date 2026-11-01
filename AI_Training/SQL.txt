@@ -1,0 +1,62 @@
+create table emp2(
+    empid number(4),
+    ename varchar(10) not null,
+    addr varchar(25),
+    city varchar(15),
+    constraints pt_empid primary key(empid)
+);
+
+desc emp2;
+
+alter table emp2 add ph number(10);
+
+alter table emp modify ename varchar(20);
+
+create table dummy(id number(5),name char(5));
+drop table dummy;
+
+insert into emp2 values(101, 'Reyhan', 'ahjbdeb','CHNN', 9092548392);
+insert into emp2 values(102, 'Shakir', 'ahjbhdbdeb','CHNN', 9092549765);
+
+select * from emp2;
+
+insert into emp2 (empid, ename) values (103, 'CCC');
+insert into emp2 (empid, ename) values (104, 'DDD');
+
+update emp2 set city='CHNN' where empid=103;
+update emp2 set city='BANG' where empid=104;
+
+delete emp2 where empid=104;
+
+select* from emp2;
+
+select empid as "ID", ename as "Name",city
+from emp2
+order by city,empid;
+
+
+select count(*) as "No of emp2"
+from emp2;
+
+select city as "place" , count(*) as "No_of_emp"
+from emp2
+group by city, ph
+having ph is not null;
+
+insert into emp2 (empid,ename,addr,city,ph) values(105, 'Sha', 'ahjb3deb','BGL', 9092534465);
+
+
+select city as "place", count(*) as "No_of_emp2"
+from emp2
+where empid>103
+group by city, ph
+having ph is null;
+
+create table dept(DeptNo number(7),Dname varchar(20));
+insert into dept(DeptNo,Dname) values(10,'CSE');
+insert into dept(DeptNo,Dname) values(20,'IT');
+insert into dept(DeptNo,Dname) values(30,'AIDS');
+
+
+
+select* from dept;
